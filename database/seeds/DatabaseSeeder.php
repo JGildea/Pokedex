@@ -11,12 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
+//        Model::unguard();
 
         $this->call(UserTableSeeder::class);
         $this->call(PokemonTableSeeder::class);
+        $this->call(AbilityTableSeeder::class);
+        $this->call(EggGroupTableSeeder::class);
+        $this->call(TypeTableSeeder::class);
 
-        Model::reguard();
+
+
+//        Model::reguard();
         
     }
 }

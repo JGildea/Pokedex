@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Resources\pokemon as pokemonResource;
 use Illuminate\Http\Request;
 use App\pokemon;
 /*
@@ -34,8 +34,9 @@ Route::group(['middleware' => 'auth:api'], function(){
     });
 });
 //return a specific pokemon
-Route::get('pokemon/{id}', function ($id) {
-    return pokemon::find($id);
+Route::get('pokemon/{pokemon}', function (pokemon $pokemon) {
+    pokemonResource::withoutWrapping();
+    return new pokemonResource($pokemon->load(['types','abilities','egg_groups']));
 });
 //return a simple paginated list
 Route::get('pokemon', function() {

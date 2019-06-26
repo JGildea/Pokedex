@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCaughtpokemonTable extends Migration
+class CreateEggGroupsPokemonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateCaughtpokemonTable extends Migration
      */
     public function up()
     {
-        Schema::create('caughtpokemon', function (Blueprint $table) {
+        Schema::create('egg_groups_pokemon', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('pokemon_id');
+            $table->unsignedBigInteger('egg_group_id');
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('pokemon_id')->references('id')->on('pokemon');
+            $table->foreign('egg_group_id')->references('id')->on('egg_groups');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateCaughtpokemonTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('caughtpokemon');
+        Schema::dropIfExists('egg_groups_pokemon');
     }
 }
