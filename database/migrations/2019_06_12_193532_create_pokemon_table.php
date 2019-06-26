@@ -16,15 +16,8 @@ class CreatePokemonTable extends Migration
         Schema::create('pokemon', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('type1');
-            $table->string('type2')->nullable();
             $table->float('height', 6 , 2);
             $table->float('weight', 6 , 2);
-            $table->string('ability1');
-            $table->string('ability2')->nullable();
-            $table->string('ability3')->nullable();
-            $table->string('egg_group1');
-            $table->string('egg_group2')->nullable();
             $table->integer('hp');
             $table->integer('speed');
             $table->integer('attack');

@@ -29,6 +29,5 @@ class pokemon extends Model
         return $this->belongsToMany(Egg_group::class, 'egg_groups_pokemon');
     }    
 
-    protected $hidden = ['type1','type2','ability1','ability2','ability3','egg_group1','egg_group2'];
     public $timestamps = false;
 }
