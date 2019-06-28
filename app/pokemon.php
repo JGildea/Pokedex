@@ -6,12 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class pokemon extends Model
 {
-    // protected $casts = [
-    //     'types' => 'array',
-    //     'abilities' => 'array',
-    //     'egg_groups' => 'array'
-    // ];
-    protected $guarded = [];
+
+    protected $fillable = ['id','name','height','weight','hp','speed','attack',
+    'defense','special_attack','special_defense','genus','description'];
 
     public function users(){
         return $this->belongsToMany(User::class, 'caughtpokemon');

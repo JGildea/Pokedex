@@ -1,5 +1,6 @@
 <?php
 use App\Http\Resources\pokemon as pokemonResource;
+use App\Http\Resources\pokemonCollection;
 use Illuminate\Http\Request;
 use App\pokemon;
 /*
@@ -22,24 +23,12 @@ Route::post('register', 'API\UserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'API\UserController@details');
     // allows a user to see the pokemon that they have
-    Route::get('pokemon/my', function(){
-        $pokemon = Auth::user()->pokemon()->orderBy('id')->get();
-        return $pokemon;
-    });
+    Route::get('pokemon/my','PokemonController@my');                                                                                                                                                                                             
     //takes a pokemon id number and marks it ass caught by the logged in user
-    Route::get('pokemon/{id}/catch', function($pid){
-        $user = Auth::user(); 
-        $user->pokemon()->sync([($pid)], false); 
+    Route::get('pokemon/{pokemon}/catch', 'PokemonController@catch'); 
 
-    });
 });
 //return a specific pokemon
-Route::get('pokemon/{pokemon}', function (pokemon $pokemon) {
-    pokemonResource::withoutWrapping();
-    return new pokemonResource($pokemon->load(['types','abilities','egg_groups']));
-});
+Route::get('pokemon/{pokemon}', 'PokemonController@show');
 //return a simple paginated list
-Route::get('pokemon', function() {
-    return pokemon::simplepaginate(10);
-});
-
+Route::get('pokemon/', 'PokemonController@index');
