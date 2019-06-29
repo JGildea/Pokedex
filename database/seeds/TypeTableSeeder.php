@@ -14,14 +14,13 @@ class TypeTableSeeder extends Seeder
         DB::table('types')->delete();
         $json = File::get("database/data/pokemon.json");
         $data = json_decode($json);
-        foreach ($data as $obj) {
-            for( $i = 0; $i < count($obj->types); $i++){   
-                    $Type = $obj->types[$i];
-                    $temp = Type::firstOrCreate(['name'=> $Type]);
-                    $temp->pokemon()->attach($obj->id);
-            }
-
-          
+        $keycollection = collect($data)->pluck('types','id');
+        $array_flattened_unique = $keycollection->flatten()->unique();
+        
+        foreach ($array_flattened_unique as $obj) {
+            $type = Type::create(['name'=>$obj]);
+            $keys = array_map('intval',array_keys(array_dot($keycollection),$obj));
+            $type->pokemon()->sync($keys);       
         }
     }
 }

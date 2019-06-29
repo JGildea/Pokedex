@@ -31,7 +31,7 @@ class PokemonTableSeeder extends Seeder
                 'description' => $obj->description                
             
             ));
-
+  
             
         }
     }

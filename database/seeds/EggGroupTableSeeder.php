@@ -14,13 +14,13 @@ class EggGroupTableSeeder extends Seeder
         DB::table('egg_groups')->delete();
         $json = File::get("database/data/pokemon.json");
         $data = json_decode($json);
-        foreach ($data as $obj) {
-            for( $i = 0; $i < count($obj->egg_groups); $i++){
-                    $Egg_group = $obj->egg_groups[$i];
-                    $temp = Egg_group::firstOrCreate(['name'=> $Egg_group]);
-                    $temp->pokemon()->attach($obj->id);
-            }
-            
+        $keycollection = collect($data)->pluck('egg_groups','id');
+        $array_flattened_unique = $keycollection->flatten()->unique();
+
+        foreach ($array_flattened_unique as $obj) {
+            $egg_group = Egg_group::create(['name'=>$obj]); 
+            $keys = array_map('intval',array_keys(array_dot($keycollection),$obj));
+            $egg_group->pokemon()->sync($keys);       
         }
     }
 }

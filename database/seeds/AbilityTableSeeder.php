@@ -14,14 +14,13 @@ class AbilityTableSeeder extends Seeder
         DB::table('abilities')->delete();
         $json = File::get("database/data/pokemon.json");
         $data = json_decode($json);
-        foreach ($data as $obj) {
-            for( $i = 0; $i < count($obj->abilities); $i++){
-                   $ability = $obj->abilities[$i];
-                    $temp = Ability::firstOrCreate(['name'=> $ability]);
-                    $temp->pokemon()->attach($obj->id);
-
-            }
-            
+        $keycollection = collect($data)->pluck('abilities','id');
+        $array_flattened_unique = $keycollection->flatten()->unique();
+        
+        foreach ($array_flattened_unique as $obj) {
+            $ability = Ability::create(['name'=>$obj]);
+            $keys = array_map('intval',array_keys(array_dot($keycollection),$obj));
+            $ability->pokemon()->sync($keys);      
         }
     }
 }
