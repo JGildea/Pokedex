@@ -40,6 +40,6 @@ class User extends Authenticatable
 
     public function pokemon()
     {
-        return $this->belongsToMany(pokemon::class,'caughtpokemon');
+        return $this->belongsToMany(Pokemon::class,'caughtpokemon');
     }
 }

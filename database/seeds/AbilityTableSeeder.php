@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use App\Ability;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 class AbilityTableSeeder extends Seeder
 {
     /**
@@ -19,7 +22,7 @@ class AbilityTableSeeder extends Seeder
         
         foreach ($array_flattened_unique as $obj) {
             $ability = Ability::create(['name'=>$obj]);
-            $keys = array_map('intval',array_keys(array_dot($keycollection),$obj));
+            $keys = array_map('intval',array_keys(Arr::dot($keycollection->toArray()),$obj));
             $ability->pokemon()->sync($keys);      
         }
     }

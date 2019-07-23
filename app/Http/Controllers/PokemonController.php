@@ -4,21 +4,19 @@ use App\Http\Resources\pokemon as pokemonResource;
 use App\Http\Resources\pokemonCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\pokemon;
+use App\Pokemon;
 
 class PokemonController extends Controller
 {
     public function index(){
-        pokemonCollection::withoutWrapping();
-        return new pokemonCollection(pokemon::paginate());    
+        return new pokemonCollection(Pokemon::paginate());
     }
 
-    public function show(pokemon $pokemon){
-        pokemonResource::withoutWrapping();
+    public function show(Pokemon $pokemon){
         return new pokemonResource($pokemon->load(['types','abilities','egg_groups']));
     }
 
-    public function catch(pokemon $pokemon){
+    public function catch(Pokemon $pokemon){
         $user = Auth::user(); 
         $user->pokemon()->sync($pokemon, false); 
     }

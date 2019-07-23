@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Egg_group;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use App\EggGroup;
 class EggGroupTableSeeder extends Seeder
 {
     /**
@@ -14,12 +17,12 @@ class EggGroupTableSeeder extends Seeder
         DB::table('egg_groups')->delete();
         $json = File::get("database/data/pokemon.json");
         $data = json_decode($json);
-        $keycollection = collect($data)->pluck('egg_groups','id');
-        $array_flattened_unique = $keycollection->flatten()->unique();
+        $keyCollection = collect($data)->pluck('egg_groups','id');
+        $array_flattened_unique = $keyCollection->flatten()->unique();
 
         foreach ($array_flattened_unique as $obj) {
-            $egg_group = Egg_group::create(['name'=>$obj]); 
-            $keys = array_map('intval',array_keys(array_dot($keycollection),$obj));
+            $egg_group = EggGroup::create(['name'=>$obj]);
+            $keys = array_map('intval',array_keys(Arr::dot($keyCollection->toArray()),$obj));
             $egg_group->pokemon()->sync($keys);       
         }
     }

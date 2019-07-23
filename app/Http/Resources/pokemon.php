@@ -21,7 +21,7 @@ class pokemon extends JsonResource
             'height' => $this->height,
             'weight' => $this->weight,
             'abilities' => $this->abilities->pluck('name'),
-            'egg_groups' => $this->egg_groups->pluck('name'),
+            'egg_groups' => $this->eggGroups->pluck('name'),
             'stats' => [
                 'hp'=>$this->id,
                 'speed' => $this->speed,

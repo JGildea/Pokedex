@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\pokemon;
+use App\Pokemon;
 class PokemonTableSeeder extends Seeder
 {
     /**
