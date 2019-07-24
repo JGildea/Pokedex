@@ -13,7 +13,7 @@ class PokemonController extends Controller
     }
 
     public function show(Pokemon $pokemon){
-        return new pokemonResource($pokemon->load(['types','abilities','egg_groups']));
+        return new pokemonResource($pokemon->load(['types','abilities','eggGroups']));
     }
 
     public function catch(Pokemon $pokemon){
@@ -23,6 +23,6 @@ class PokemonController extends Controller
 
     public function my(){
         $pokemon = Auth::user()->pokemon()->orderBy('id')->get();
-        return new pokemonCollection($pokemon->load(['types','abilities','egg_groups']));
+        return new pokemonCollection($pokemon->load(['types','abilities','eggGroups']));
     }
 }

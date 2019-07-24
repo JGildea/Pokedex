@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'API\UserController@details');
     // allows a user to see the pokemon that they have
     Route::get('pokemon/my','PokemonController@my');                                                                                                                                                                                             
-    //takes a pokemon id number and marks it ass caught by the logged in user
+    //takes a pokemon id number and marks it as caught by the logged in user
     Route::get('pokemon/{pokemon}/catch', 'PokemonController@catch'); 
 
 });
