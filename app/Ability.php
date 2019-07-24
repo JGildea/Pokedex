@@ -10,7 +10,7 @@ class Ability extends Model
 
     public function pokemon()
     {
-        return $this->belongsToMany(pokemon::class,'abilities_pokemon');
+        return $this->belongsToMany(pokemon::class, 'abilities_pokemon');
     }
 
     public $timestamps = false;

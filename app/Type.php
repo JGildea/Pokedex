@@ -10,7 +10,7 @@ class Type extends Model
 
     public function pokemon()
     {
-        return $this->belongsToMany(pokemon::class,'pokemon_types');
+        return $this->belongsToMany(pokemon::class, 'pokemon_types');
     }
 
     public $timestamps = false;

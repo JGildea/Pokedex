@@ -10,7 +10,7 @@ class EggGroup extends Model
 
     public function pokemon()
     {
-        return $this->belongsToMany(Pokemon::class,'eggGroups_pokemon');
+        return $this->belongsToMany(Pokemon::class, 'eggGroups_pokemon');
     }
 
     public $timestamps = false;

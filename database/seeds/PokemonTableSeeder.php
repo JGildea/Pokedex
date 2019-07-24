@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Pokemon;
+
 class PokemonTableSeeder extends Seeder
 {
     /**
@@ -20,19 +21,19 @@ class PokemonTableSeeder extends Seeder
                 'name' => $obj->name,
                 'height' => $obj->height,
                 'weight' => $obj->weight,
-                'hp'=> $obj->stats->hp,
-                'speed'=> $obj->stats->speed,
-                'attack'=> $obj->stats->attack,
-                'defense'=> $obj->stats->defense,
-                'special_attack'=> $obj->stats-> special_attack,
-                'special_defense'=> $obj->stats-> special_defense,
+                'hp' => $obj->stats->hp,
+                'speed' => $obj->stats->speed,
+                'attack' => $obj->stats->attack,
+                'defense' => $obj->stats->defense,
+                'special_attack' => $obj->stats->special_attack,
+                'special_defense' => $obj->stats->special_defense,
 
                 'genus' => $obj->genus,
-                'description' => $obj->description                
-            
+                'description' => $obj->description
+
             ));
-  
-            
+
+
         }
     }
 }

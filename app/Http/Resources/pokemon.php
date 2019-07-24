@@ -9,7 +9,7 @@ class pokemon extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function toArray($request)
@@ -23,7 +23,7 @@ class pokemon extends JsonResource
             'abilities' => $this->abilities->pluck('name'),
             'egg_groups' => $this->eggGroups->pluck('name'),
             'stats' => [
-                'hp'=>$this->id,
+                'hp' => $this->id,
                 'speed' => $this->speed,
                 'attack' => $this->attack,
                 'defense' => $this->defense,
@@ -33,6 +33,6 @@ class pokemon extends JsonResource
             'genus' => $this->genus,
             'description' => $this->description,
 
-        ];    
+        ];
     }
 }
