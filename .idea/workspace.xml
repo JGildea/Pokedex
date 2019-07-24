@@ -20,13 +20,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Pokemon.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
               <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env.example">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -399,7 +404,7 @@
       <updated>1563895247540</updated>
       <workItem from="1563895249134" duration="4650000" />
       <workItem from="1563901155690" duration="487000" />
-      <workItem from="1563904337181" duration="10857000" />
+      <workItem from="1563904337181" duration="11317000" />
     </task>
     <task id="LOCAL-00001" summary="finishing up some of the things that were mentioned in the meeting yesterday.">
       <created>1563911079928</created>
@@ -412,12 +417,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15994000" />
+    <option name="totallyTimeSpent" value="16454000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1923" y="23" width="1920" height="1003" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28381255" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28381255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.32970297" />
@@ -431,7 +436,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32970297" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2107574" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2107574" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -659,6 +664,9 @@
           <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.example">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
